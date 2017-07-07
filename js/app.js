@@ -10,10 +10,17 @@ var viewModel = function() {
     if (this.clickCount()>= 50 && this.clickCount() < 100) return "Child";
     if (this.clickCount()>= 100) return "Teen";
   }, this);
+  this.nicknames = ko.observableArray([
+    {nickname: 'bobby'},
+    {nickname: 'cutie'},
+    {nickname: 'bob esponja'},
+    {nickname: 'bobs'}
+  ]);
 
   this.incrementCounter = function() {
     this.clickCount(this.clickCount() + 1);
   };
 }
+
 
 ko.applyBindings(new viewModel());
