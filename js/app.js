@@ -53,7 +53,7 @@ var initialCats = [
 ]
 
 var Cat = function(data){
-  //model goes in here
+  //model 
   this.name = ko.observable(data.name);
   this.clickCount = ko.observable(data.clickCount);
   this.imgSrc = ko.observable(data.imgSrc);
@@ -83,6 +83,11 @@ var viewModel = function() {
   };
 
   this.setCat = function(clickedCat){
+    // self is referring to the viewModel, which is where currentCat lives
+    // documentation: when you click on something and it runs a function it
+    //passes in the object you clicked on. Specifically the model we're talking about.
+    // So, when setCat gets run and the clickedCat model get's passed in we're going to
+    //set the current cat to the cat we just clicked on.
     self.currentCat(clickedCat);
   };
 }
