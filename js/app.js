@@ -1,4 +1,4 @@
-var viewModel = function() {
+var Cat = function(){
   //model goes in here
   this.name = ko.observable('Bob');
   this.clickCount = ko.observable(0);
@@ -16,11 +16,13 @@ var viewModel = function() {
     {nickname: 'bob esponja'},
     {nickname: 'bobs'}
   ]);
-
-  this.incrementCounter = function() {
-    this.clickCount(this.clickCount() + 1);
-  };
 }
 
+var viewModel = function() {
+  this.currentCat = ko.observable(new Cat());
+  this.incrementCounter = function() {
+    this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+  };
+}
 
 ko.applyBindings(new viewModel());
